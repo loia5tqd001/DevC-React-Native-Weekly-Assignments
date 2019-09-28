@@ -1,0 +1,128 @@
+body {
+  display: -ms-grid;
+  display: grid;
+  place-items: start center;
+  min-height: 98vh;
+  font-family: arial, sans-serif;
+  color: #55575a;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 30px;
+}
+
+section.container > * {
+  margin: 0 auto;
+}
+
+img.logo {
+  display: block;
+  width: 300px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+input#threshold {
+  display: block;
+  width: 500px;
+  height: 20px;
+  padding: 1rem 2rem;
+  margin: .5rem auto;
+  font-size: 1.1rem;
+  border: 1px solid #dfe1e5;
+  border-radius: 2rem;
+  outline: none;
+}
+
+input#threshold::-webkit-inner-spin-button, input#threshold::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+input#threshold:hover {
+  -webkit-box-shadow: 0 1px 6px 0 rgba(32, 32, 32, 0.28);
+          box-shadow: 0 1px 6px 0 rgba(32, 32, 32, 0.28);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+input#threshold::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+input#threshold:-ms-input-placeholder {
+  color: #ccc;
+}
+
+input#threshold::-ms-input-placeholder {
+  color: #ccc;
+}
+
+input#threshold::placeholder {
+  color: #ccc;
+}
+
+div.generate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 2rem 0 1rem;
+}
+
+div.generate > * {
+  background: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+  background: linear-gradient(to bottom, #f5f5f5, #f1f1f1);
+  border: 1px solid #f2f2f2;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #5f6368;
+  padding: .5rem 1rem;
+  font-size: .9rem;
+}
+
+div.generate button#generate {
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+div.generate button#generate:hover {
+  border: 1px solid #c6c6c6;
+}
+
+div.generate input[type=number] {
+  width: 3rem;
+  -webkit-filter: brightness(104%);
+          filter: brightness(104%);
+}
+
+div.generate span {
+  background: transparent;
+  border: none;
+}
+
+div#display {
+  display: block;
+  width: 700px;
+  height: 200px;
+  border: 1px solid #dfe1e5;
+  outline: none;
+  resize: none;
+  color: #55575a;
+  font-size: 1.4rem;
+  padding: .5rem 1rem;
+}
+
+div#display:hover {
+  border: 1px solid #c6c6c6;
+}
+
+div#display span {
+  color: #00f500;
+  background: #eee;
+}
+/*# sourceMappingURL=main.css.map */
