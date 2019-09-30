@@ -10,6 +10,9 @@ body {
 section.container > *{
   margin: 0 auto;
 }
+section.container * {
+  transition: box-shadow 250ms, border 250ms;
+}
 
 img.logo {
   display: block;

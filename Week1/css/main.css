@@ -14,6 +14,13 @@ section.container > * {
   margin: 0 auto;
 }
 
+section.container * {
+  -webkit-transition: border 250ms, -webkit-box-shadow 250ms;
+  transition: border 250ms, -webkit-box-shadow 250ms;
+  transition: box-shadow 250ms, border 250ms;
+  transition: box-shadow 250ms, border 250ms, -webkit-box-shadow 250ms;
+}
+
 img.logo {
   display: block;
   width: 300px;
