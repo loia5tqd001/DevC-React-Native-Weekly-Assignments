@@ -75,10 +75,10 @@ function onFindingSmallestSubArray (e) {
     }
   }
   
-  const threshold = thresholdInp_.value ? Number(thresholdInp_.value) : -Infinity
-  const result = getLongestSubArrayHasSumLessThan(dbArray, threshold)
-  const resultStr = result.arr.join(' ')
-  displayArea_.innerHTML = dbArray.join(' ') .replace(resultStr, `<span title="sum = ${result.sum}">${resultStr}</span>`)
+  const threshold = Number(thresholdInp_.value) || -Infinity
+  const { arr, sum } = getLongestSubArrayHasSumLessThan(dbArray, threshold)
+  const resultStr = arr.join(' ')
+  displayArea_.innerHTML = dbArray.join(' ').replace(resultStr, `<span title="sum = ${sum}">${resultStr}</span>`)
 }
 
 ;(function main() {
