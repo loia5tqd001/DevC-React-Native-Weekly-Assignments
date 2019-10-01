@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Currency Converter</title>
+  <!-- <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.css"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Currency Converter</h1>
+
+  <label for="amount">From</label>
+  <input type="number" id="amount" min="0" placeholder="amount...">
+  <select name="" id="from">
+    <!-- <option disabled selected> -- select an option -- </option> -->
+    <option value="USD">USD</option>
+    <option value="JPY">JPY</option>
+    <option value="CAD">CAD</option>
+    <option value="KRW">KRW</option>
+  </select>
+  
+  <label for="to">To</label>
+  <select name="" id="to">
+    <!-- <option disabled selected> -- select an option -- </option> -->
+    <option value="USD">USD</option>
+    <option value="JPY">JPY</option>
+    <option value="CAD">CAD</option>
+    <option value="KRW">KRW</option>
+    <option value="VND">VND</option>
+  </select>
+
+  <button id="btn-convert">Convert</button>
+  <p id="result">Result here...</p>
+
+  <script src="./app.js"></script>
+</body>
+</html>
