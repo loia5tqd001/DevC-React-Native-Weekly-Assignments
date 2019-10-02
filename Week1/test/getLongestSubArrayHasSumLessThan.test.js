@@ -14,6 +14,8 @@ testCorrectness()
 benchMark(newOptimized, 1000000)
 
 function testCorrectness () {
+  console.group('Test correctness')
+
   for (let size = 10; size <= 100; size++) {
     const array = getRandomArray(size, 0, size)
     const threshold = Math.round(Math.random() * size)
@@ -32,18 +34,21 @@ function testCorrectness () {
       break
     }
   }
-  console.log('===: Test correctness ended  :===')
+
+  console.groupEnd()
 }
 
 function benchMark (func, size = 9999) {
-  const label = '---: benchMark ()'
+  console.group('Benchmark')
+  const label = '===: benchMark ()'
   console.time(label)
-
+  
   const array = getRandomArray(size, 0, size)
   const threshold = Math.round(Math.random() * size)
   const _letsRun_ = func(array, threshold)
-
+  
   console.timeEnd(label)
+  console.groupEnd()
 }
 
 function getRandomArray (size, min, max) {
