@@ -1,4 +1,4 @@
-import React, { useState, getGlobal, useGlobal, useLayoutEffect, useEffect } from "reactn"
+import React, { useState, useGlobal, useEffect } from "reactn"
 import { StyleSheet, View, TouchableOpacity, Image } from "react-native"
 import { MaterialIcons } from "@expo/vector-icons"
 import { CurrencyCard, InputCurrenyCard } from "/components/CurrencyCard"

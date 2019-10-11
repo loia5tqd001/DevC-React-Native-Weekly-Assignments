@@ -1,4 +1,4 @@
-import React, { useEffect, useGlobal, setGlobal, getGlobal } from "reactn"
+import React, { useEffect, useGlobal, setGlobal } from "reactn"
 import { StyleSheet, View, Text } from "react-native"
 import Constants from "expo-constants"
 import MainConversion from "/components/MainConversion"
@@ -25,14 +25,26 @@ export default function App() {
   useEffect(() => {
     for (const symbol of listSymbols) {
       getExchangeRate("USD", symbol).then(exchangeRate => {
-        console.log("Call api getting exchange rate for " + symbol)
-        setUsdRates({
-          ...usdRates, // keep old exchange rates,
-          [symbol]: exchangeRate // and extend new exchange rate for new currency
-        })
+        
+        setUsdRates(oldUsdRates => ({
+          ...oldUsdRates, 
+          [symbol]: exchangeRate 
+        }))
+        .then(() => console.log("Call api getting exchange rate for " + symbol, usdRates) )
       })
     }
   }, [])
+
+  // useEffect(() => {
+  //   for (const symbol of listSymbols) {
+  //     getExchangeRate("USD", symbol).then(exchangeRate => {
+  //       usdRates[symbol] = exchangeRate
+  //       console.log("Call api got exchange rate for " + symbol, usdRates)
+  //     })
+  //   }
+
+  //   setUsdRates(usdRates)
+  // }, [])
 
   return (
     <View style={styles.container}>
