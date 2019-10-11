@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useGlobal } from "reactn"
 import { View, TextInput, StyleSheet, Text, Platform } from "react-native"
-import PickerItem from "./PickerItem"
+import PickerItem from "/components/PickerItem"
+import { listCurrencies } from "/data/data"
+import colors from "/constants/colors"
 
-export const InputCurrenyCard = ({ currency, setCurrency, listCurrencies }) => {
+export const InputCurrenyCard = ({ currency, setCurrency }) => {
   return (
     <View style={styles.container}>
       <PickerItem
@@ -13,7 +15,6 @@ export const InputCurrenyCard = ({ currency, setCurrency, listCurrencies }) => {
             info: listCurrencies[newCurrencyCode]
           })
         }
-        listCurrencies={listCurrencies}
       />
       <View style={styles.currency}>
         <TextInput
@@ -27,7 +28,7 @@ export const InputCurrenyCard = ({ currency, setCurrency, listCurrencies }) => {
             })
           }
           value={currency.amount}
-          selectionColor="gray"
+          selectionColor={colors.TurquoiseBlue}
         />
         <Text style={styles.symbol}>{currency.info.symbol_native}</Text>
       </View>
@@ -35,19 +36,21 @@ export const InputCurrenyCard = ({ currency, setCurrency, listCurrencies }) => {
   )
 }
 
-export const CurrencyCard = ({ currency, setCurrency, listCurrencies }) => {
+export const CurrencyCard = ({ currency, setCurrency }) => {
   const formatNumber = (amount) => {
     if (Platform.OS === "ios") {
       return new Intl.NumberFormat().format(amount)
     }
+
     // 1. Android doesn't have Intl: https://github.com/moment/luxon/issues/51
     // 2. Format number by String.replace: https://blog.abelotech.com/posts/number-currency-formatting-javascript/
     // == Explain the regex:
-    // i.         \d{3}           : match three digits
-    // ii.       (\d{3})+         : match multile of three (3,6,9,...) digits
-    // iii.      (\d{3})+(?!\d)   : match 3x digits, count from the right ('1234567' will match '234567' instead of '123456')
-    // iv.    (?=(\d{3})+(?!\d))  : follow by 3x digits, count from the right
-    // v. (\d)(?=(\d{3})+(?!\d))  : a digit follow by 3x digits, count from the right
+    // i.          \d{3}           : match three digits
+    // ii.        (\d{3})+         : match multile of three (3,6,9,...) digits
+    // iii.       (\d{3})+(?!\d)   : match 3x digits, count from the right ('1234567' will match '234567' instead of '123456')
+    // iv.     (?=(\d{3})+(?!\d))  : followed by 3x digits, count from the right
+    // v.  (\d)(?=(\d{3})+(?!\d))  : a digit followed by 3x digits, count from the right
+    // vi./(\d)(?=(\d{3})+(?!\d))/g: all digits followed by 3x digits count from the right
     // More on regex here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
     // More on String.replace here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
     return amount.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
@@ -63,7 +66,6 @@ export const CurrencyCard = ({ currency, setCurrency, listCurrencies }) => {
             info: listCurrencies[newCurrencyCode]
           })
         }
-        listCurrencies={listCurrencies}
       />
       <View style={styles.currency}>
         <Text style={styles.amount} numberOfLines={1}>
@@ -92,8 +94,10 @@ const styles = StyleSheet.create({
     fontSize: 23,
     marginHorizontal: 10,
     textAlign: "right",
+    color: colors.Paradiso
   },
   symbol: {
-    fontSize: 16
+    fontSize: 16,
+    color: colors.TurquoiseBlue
   }
 })
