@@ -8,30 +8,6 @@ import { shadow1 } from "/constants/shadows"
 import colors from "/constants/colors"
 
 export default MainConversion = () => {
-  // const [currentCurrency, setCurrentCurrency] = useState({
-  //   amount: "",
-  //   info: listCurrencies.USD
-  // })
-  // useEffect(() => {
-  //   setGlobal({
-  //     currentCurrency: {
-  //       amount: "",
-  //       info: listCurrencies.USD
-  //     }
-  //   })
-  // }, [])
-  // useEffect(() => {
-  //   setGlobal({
-  //     currentCurrency: {
-  //       amount: "",
-  //       info: listCurrencies.USD
-  //     }
-  //   })
-  // }, [])
-  // const [currentCurrency, setCurrentCurrency] = useGlobal({
-  //   amount: "",
-  //   info: listCurrencies.USD
-  // })
   const [currentCurrency, setCurrentCurrency] = useGlobal("currentCurrency")
   const [convertedCurrency, setConvertedCurrency] = useState({
     amount: 0,
