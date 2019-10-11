@@ -87,7 +87,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   currency: {
-    flexDirection: "row"
+    flexDirection: "row",
+    flexBasis: 180
   },
   amount: {
     flexBasis: 150,
@@ -98,6 +99,7 @@ const styles = StyleSheet.create({
   },
   symbol: {
     fontSize: 16,
+    textAlign: "center",
     color: colors.TurquoiseBlue
   }
 })

@@ -4,12 +4,12 @@ import { MaterialIcons } from "@expo/vector-icons"
 import { CurrencyCard, InputCurrenyCard } from "/components/CurrencyCard"
 import { convertCurrency } from "/utils/utils"
 import { listSymbols, listCurrencies } from "/data/data"
-import { shadow1 } from "/constants/shadows"
+import { shadow2 } from "/constants/shadows"
 import colors from "/constants/colors"
 
 export default ExtraConversion = () => {
   const [currentCurrency, setCurrentCurrency] = useGlobal("currentCurrency")
-  const [extraCurrency, setExtraCurrency] = useState([
+  const [extraCurrencies, setExtraCurrencies] = useState([
     {
       amount: "0",
       info: listCurrencies.JPY
@@ -29,17 +29,18 @@ export default ExtraConversion = () => {
       currentCurrency,
       newValue
     )
-    setExtraCurrency(
-      extraCurrency.splice(index, 1, convertedCurrency)
+    setExtraCurrencies(
+      extraCurrencies.splice(index, 1, convertedCurrency)
     )
   }
 
   return (
     <View style={styles.container}>
-      {extraCurrency.forEach((_, index) => (
+      {extraCurrencies.map((currency, index) => (
         <CurrencyCard
+          key={index}
           style={styles.card}
-          currency={extraCurrency[index]}
+          currency={currency}
           setCurrency={newValue => onCurrencyChange(newValue, index)}
         />
       ))}
@@ -51,11 +52,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     paddingVertical: 35,
     paddingHorizontal: 20,
-    height: "100%",
-    backgroundColor: "blue"
+    ...shadow2
+    // backgroundColor: "blue"
   },
   card: {
     flex: 1,
